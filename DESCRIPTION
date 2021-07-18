@@ -1,0 +1,18 @@
+Package: SICLEN
+Type: Package
+Title: Accurate single-cell clustering through effective noise reduction over ensemble similarity network
+Version: 0.1.0
+Author: Hyundoo Jeong 
+Maintainer: Hyundoo Jeong  <hdj@inu.ac.kr>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  matrixStats, Matrix, irlba, loe, NbClust, edgeR
+RoxygenNote: 7.1.1
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
