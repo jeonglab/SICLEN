@@ -74,7 +74,8 @@ clustering$clusterid   # predicted clustering labels
 clustering$fgenes      # potential feature genes that are employed to construc the ensemble similarity network   
 ```
 
-Finally, to verify the clustering results, we can obtain the low-dimensional visualize of single-cell clustering results through t-SNE. In this example, we will use the R packages ggplot2 and Rtnse. Please refere to the following sample code:
+In order to verify the clustering results, please take a look at `clustering$clusterid `. It provides the numeric ID for derived single-cell clustering results. 
+Finally, to verify the clustering results, we can obtain the low-dimensional visualize of single-cell clustering results through t-SNE. In this example, we will use the R packages ggplot2 and Rtnse. Please refer to the following sample code:
 
 ```
 # load required packages
