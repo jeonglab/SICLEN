@@ -4,8 +4,7 @@
 ## Abstract
 
 
-Single-cell RNA sequencing provides novel methods to interpret the transcriptomic profiles of individual cells. To obtain in-depth analysis of single-cell RNA sequencing, it requires effective computational methods to accurately predict single-cell clusters in the data because single-cell RNA sequencing techniques only provides the transcriptomic profiles of each cell. Although accurate estimation of the cell-to-cell similarity is the essential first step to derive reliable single-cell clustering, it is challenging to obtain accurate similarity measurements because it highly depends on the selection of genes for similarity evaluations and the optimal set of genes for accurate similarity estimation is typically unknown. Moreover, due to the technical limitations, single-cell RNA sequencing includes larger number of artificial zeros and these technical noise makes it difficult to develop effective single cell clustering algorithms. Here, we describe novel single-cell clustering algorithm that can accurately predict cell types in large-scale single-cell RNA sequencing by effectively reducing zero-inflated noise and accurately estimating the cell-to-cell similarities. First, we construct an ensemble similarity network based on different similarity estimates, and reduce the artificial noise using the random walk with restart approach. Finally, starting from a larger number small clusters, we iteratively merge a pair of clusters with the maximum similarities until it reaches the predicted number of clusters. Extensive performance evaluation shows that the proposed single-cell clustering algorithm can yield accurate single-cell clusters and it can help deciphering the key messages underlying complex biological mechanisms.
-
+Single-cell sequencing provides novel means to interpret the transcriptomic profiles of individual cells. To obtain in-depth analysis of single-cell sequencing, it requires effective computational methods to accurately predict single-cell clusters because single-cell sequencing techniques only provide the transcriptomic profiles of each cell. Although the accurate estimation of the cell-to-cell similarity is an essential first step to derive reliable single-cell clustering results, it is challenging to obtain accurate similarity measurements because it highly depends on the selection of genes for similarity evaluations and the optimal set of genes for the accurate similarity estimation is typically unknown. Moreover, due to technical limitations, single-cell sequencing includes a larger number of artificial zeros and the technical noise makes it difficult to develop effective single-cell clustering algorithms. Here, we describe a novel single-cell clustering algorithm that can accurately predict single-cell clusters in large-scale single-cell sequencing by effectively reducing the zero-inflated noise and accurately estimating the cell-to-cell similarities. First, we construct an ensemble similarity network based on different similarity estimates, and reduce the artificial noise using a random walk with restart approach. Finally, starting from a larger number small but highly consistent clusters, we iteratively merge a pair of clusters with the maximum similarities until it reaches the predicted number of clusters. Extensive performance evaluation shows that the proposed single-cell clustering algorithm can yield the accurate single-cell clustering results and it can help deciphering the key messages underlying complex biological mechanisms. 
 
 
 <p align="center">
@@ -66,10 +65,16 @@ Next, run SICLEN to obtain the accurate single-cell clustering resutls. We only 
 ```
 clustering <- siclen(usoskin$counts)
 ```
-Clustering resutls includes following objects: 
-1) predicted clustering labels, 2) learned ensemble similarity network, 3) potential feature genes, and 4) noise reduced gene expression counts (cpm normalized)
 
-Finally, to visualize the single-cell clustering results, we employ t-SNE. 
+Once the proposed single-cell clustering algorithm finished, it returns the following objects: 
+```
+clustering$counts      # noise reduced gene expression counts (cpm normalized)
+clustering$network     # learned ensemble similarity network
+clustering$clusterid   # predicted clustering labels
+clustering$fgenes      # potential feature genes that are employed to construc the ensemble similarity network   
+```
+
+Finally, to verify the clustering results, we can obtain the low-dimensional visualize of single-cell clustering results through t-SNE. In this example, we will use the R packages ggplot2 and Rtnse. Please refere to the following sample code:
 
 ```
 # load required packages
