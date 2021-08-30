@@ -44,6 +44,24 @@ library(SICLEN)
 data(usoskin)
 ```
 
+The sample data includes two arguments: i) gene expression counts and ii) true cell type labels.
+
+```
+> usoskin$counts
+                        L128_D01  L128_H01  L128_B02  L128_C02  L128_E02  L128_A03  L128_B03  L128_D03  L128_E03  L128_C04
+Xkr4                        0.00     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000
+                         L128_F04  L128_G04  L128_B05  L128_D05  L128_G05  L128_D06  L128_F06  L128_H07  L128_A08  L128_H08
+Xkr4                        0.000     0.000     0.000     0.000    32.027     0.000     0.000     0.000     0.000     0.000
+ [ reached getOption("max.print") -- omitted 19533 rows ]
+ 
+ > usoskin$label
+  [1] "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF" 
+ [20] "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF"  "NF" 
+ ....
+[609] "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH"  "TH" 
+
+```
+
 Next, run SICLEN to obtain the accurate single-cell clustering resutls. We only need to type the following command. 
 ```
 clustering <- siclen(usoskin$counts)
