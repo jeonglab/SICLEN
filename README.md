@@ -102,6 +102,14 @@ Fig. 2 Low-dimensional visualization of the clustering resutls
 </p>
 
 
+## Default parameter settings 
+Here, we have the default parameter setting for the proposed single-cell clustering algorithm. We carefully select the default parameters based on our experimental results. However, different parameters can yield an improved single-cell clustering results depending on the various factors. Please feel free to adjust the parameters. 
+
+* nens : The number of iteration for the ensemble similarity learning. Although the larger number can yield the more reliable similarity learning, it can also require longer computation time. 
+* knum : The number of neighboring nodes for constructing KNN (K-nearest neighboring) network. 
+* alpha : The restarting probability. If alpha is equal to zero, the random walker will not restart and stay the initial location. Hence, the zero-inflated noise will not be removed. This is a key parameter and the sweet spot typically ranges from 0.5-0.8.
+* npc : The number of principal components to estimate the cell-to-cell similarities. Based on our experiment, 10 PCs are enough for the most single-cell sequencing datasets.
+
 
 
 ## Reference
