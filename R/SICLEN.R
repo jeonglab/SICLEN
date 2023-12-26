@@ -216,7 +216,7 @@ siclen_denoise <- function(data, nens = 20, knum = 30, alpha = 0.7, npc = 10, pF
   scale_knn <- scale_knn %*% scale_knn
 
   eye <- Diagonal(dim(log_scdata)[2])
-  R <- (eye - (1-alpha) * scale_knn)
+  R <- (eye - alpha * scale_knn)
   e <- t((1-alpha) * log_scdata)
   ssp <- solve(R,e)
 
